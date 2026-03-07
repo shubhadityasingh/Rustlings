@@ -10,7 +10,17 @@ fn compose_me(input: &str) -> String {
 
 fn replace_me(input: &str) -> String {
     // TODO: Replace "cars" in the string with "balloons".
-    input.replace("cars", "balloons").to_string()
+    let mut ret = String::new();
+    for w in input.split_whitespace() {
+        if w != "cars" {
+            ret.push_str(w);
+        } else {
+            ret.push_str("balloons");
+        }
+        ret.push(' ');
+    }
+    ret.pop();
+    ret
 }
 
 fn main() {
